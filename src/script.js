@@ -1,7 +1,7 @@
 function getComputerChoice() {
     // TODO: return "rock", "paper" or "scissors", randomly
     // i can use Math.random
-    switch (Math.floor(Math.random * 3)) {
+    switch (Math.floor(Math.random() * 3)) {
         case 0:
             return 'rock';
         case 1:
