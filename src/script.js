@@ -18,6 +18,17 @@ function getHumanChoice() {
     return prompt('choose between \'rock\', \'paper\' or \'scissors\'');
 }
 
+function convertChoiceToInt(choice) {
+    switch (choice) {
+        case 'rock':
+            return 0;
+        case 'paper':
+            return 1;
+        case 'scissors':
+            return 2;
+    }
+}
+
 function playRound(humanChoice, computerChoice) {
     humanChoice = convertChoiceToInt(humanChoice.toLowerCase());
     computerChoice = convertChoiceToInt(computerChoice);
@@ -37,16 +48,5 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
             console.log("You lost (the game)!");
             break;
-    }
-}
-
-function convertChoiceToInt(choice) {
-    switch (choice) {
-        case 'rock':
-            return 0;
-        case 'paper':
-            return 1;
-        case 'scissors':
-            return 2;
     }
 }
