@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     // TODO: return "rock", "paper" or "scissors", randomly
     // i can use Math.random
@@ -14,10 +11,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    return prompt('choose between \'rock\', \'paper\' or \'scissors\'');
-}
-
 function playRound(humanChoice, computerChoice) {
     humanChoice = convertChoiceToInt(humanChoice.toLowerCase());
     computerChoice = convertChoiceToInt(computerChoice);
@@ -27,10 +20,15 @@ function playRound(humanChoice, computerChoice) {
     // player loses = 2
     switch ((humanChoice - computerChoice + 3) % 3) {
         case 0:
+            roundWinner.textContent = 'Empate!';
             break;
-        case 1:
+        case 1: 
+            humanScore.textContent = +humanScore.textContent + 1;
+            roundWinner.textContent = 'Você ganhou!';
             break;
         case 2:
+            computerScore.textContent = +computerScore.textContent + 1;
+            roundWinner.textContent = 'Você perdeu!';
             break;
     }
 }
@@ -45,3 +43,13 @@ function convertChoiceToInt(choice) {
             return 2;
     }
 }
+
+const options = document.querySelector('.options');
+const humanScore = document.querySelector('.humanScore .value');
+const computerScore = document.querySelector('.computerScore .value');
+const roundWinner = document.querySelector('.roundWinner');
+
+options.addEventListener('click', function (event) {
+    if (event.target.tagName !== "BUTTON") return;
+    playRound(event.target.id, getComputerChoice());
+});

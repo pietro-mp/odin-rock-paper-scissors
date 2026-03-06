@@ -59,7 +59,7 @@ button {
     gap: 16px;
 }
 
-.playerScore, .computerScore {
+.humanScore, .computerScore {
     display: flex;
     flex-direction: column;
     align-items: center;
