@@ -6,7 +6,7 @@ function getComputerChoice() {
     // i can use Math.random
     switch (Math.floor(Math.random() * 3)) {
         case 0:
-            return 'rock';
+            return 'rock';  
         case 1:
             return 'paper';
         case 2:
@@ -27,15 +27,15 @@ function playRound(humanChoice, computerChoice) {
     // player loses = 2
     switch ((humanChoice - computerChoice + 3) % 3) {
         case 0:
-            console.log("It's a tie!");
+            results.textContent = ' It\'s a tie';
             break;
         case 1:
             humanScore++;
-            console.log("You won!");
+            results.textContent = 'You won!';
             break;
         case 2:
             computerScore++;
-            console.log("You lost (the game)!");
+            results.textContent = 'You lose!';
             break;
     }
 }
@@ -50,3 +50,25 @@ function convertChoiceToInt(choice) {
             return 2;
     }
 }
+
+const controls = document.querySelector("#controls");
+const results = document.querySelector('#results');
+
+controls.addEventListener("click", function (event) { 
+    const computerChoice = getComputerChoice();
+    if (event.target.tagName !== "BUTTON") return;
+
+    switch (event.target.id) {
+        case 'rock':
+            playRound('rock', computerChoice);
+            break;
+
+        case 'paper':
+            playRound('paper', computerChoice);
+            break;
+        
+        case 'scissors':
+            playRound('scissors', computerChoice);
+            break;
+    }
+});
