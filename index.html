@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock paper scissors</title>
+    <link rel="stylesheet" href="./src/style.css">
     <script defer src="./src/script.js"></script>
 </head>
 <body>
-    <div id="controls">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </div>
-    <div id="results">
-    </div>
+    <header>ROCK PAPER SCISSORS</header>
+    <section>
+        <div id="controls"></div>
+            <div class="text">Escolha sua jogada</div>
+            <div class="options">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+        </div>
+        <div id="score">
+            <div class="text">
+                <h1>Score</h1>
+                <h2>O primeiro a fazer 5 ganha</h2>
+            </div>
+            <div class="scoreboard">
+                <div class="playerScore">
+                    <div class="value">0</div>
+                    <div class="text">Player</div>
+                </div>
+                <div class="computerScore">
+                    <div class="value">0</div>
+                    <div class="text">Computer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>&#169; Pietro Pereira - 2026</footer>
 </body>
 </html>
