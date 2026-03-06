@@ -1,12 +1,9 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     // TODO: return "rock", "paper" or "scissors", randomly
     // i can use Math.random
     switch (Math.floor(Math.random() * 3)) {
         case 0:
-            return 'rock';
+            return 'rock';  
         case 1:
             return 'paper';
         case 2:
@@ -14,8 +11,26 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    return prompt('choose between \'rock\', \'paper\' or \'scissors\'');
+function playRound(humanChoice, computerChoice) {
+    humanChoice = convertChoiceToInt(humanChoice.toLowerCase());
+    computerChoice = convertChoiceToInt(computerChoice);
+
+    // tie = 0;
+    // player wins = 1;
+    // player loses = 2
+    switch ((humanChoice - computerChoice + 3) % 3) {
+        case 0:
+            roundWinner.textContent = 'Empate!';
+            break;
+        case 1: 
+            humanScore.textContent = +humanScore.textContent + 1;
+            roundWinner.textContent = 'Você ganhou!';
+            break;
+        case 2:
+            computerScore.textContent = +computerScore.textContent + 1;
+            roundWinner.textContent = 'Você perdeu!';
+            break;
+    }
 }
 
 function convertChoiceToInt(choice) {
@@ -29,24 +44,12 @@ function convertChoiceToInt(choice) {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = convertChoiceToInt(humanChoice.toLowerCase());
-    computerChoice = convertChoiceToInt(computerChoice);
+const options = document.querySelector('.options');
+const humanScore = document.querySelector('.humanScore .value');
+const computerScore = document.querySelector('.computerScore .value');
+const roundWinner = document.querySelector('.roundWinner');
 
-    // tie = 0;
-    // player wins = 1;
-    // player loses = 2
-    switch ((humanChoice - computerChoice + 3) % 3) {
-        case 0:
-            console.log("It's a tie!");
-            break;
-        case 1:
-            humanScore++;
-            console.log("You won!");
-            break;
-        case 2:
-            computerScore++;
-            console.log("You lost (the game)!");
-            break;
-    }
-}
+options.addEventListener('click', function (event) {
+    if (event.target.tagName !== "BUTTON") return;
+    playRound(event.target.id, getComputerChoice());
+});
