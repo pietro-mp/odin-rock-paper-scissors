@@ -10,24 +10,25 @@
 <body>
     <header>ROCK PAPER SCISSORS</header>
     <section>
-        <div class="score">
+        <div class="scoreSection">
             <div class="text">
-                <h2>O primeiro a fazer 5 ganha</h2>
+                <h2>Choose below to start</h2>
+                <h3>The first to get 5 points win</h3>
             </div>
             <div class="scoreboard">
                 <div class="human score-box">
                     <div class="choice">?</div>
-                    <div class="score">Human: 0</div>
+                    <div class="score">Human: <span>0</span></div>
                 </div>
 
                 <div class="computer score-box">
                     <div class="choice">?</div>
-                    <div class="score">Computer: 0</div>
+                    <div class="score">Computer: <span>0</span></div>
                 </div>
             </div>
         </div>
         <div class="controls">
-            <div class="text">Escolha sua jogada</div>
+            <div class="text">Choose your move</div>
             <div class="options">
                 <button id="rock">👊</button>
                 <button id="paper">🖐️</button>
@@ -36,5 +37,12 @@
         </div>
     </section>
     <footer>&#169; Pietro Pereira - 2026</footer>
+
+    <div class="modal">
+        <div class="modal-content">
+            <p></p>
+            <button id="again">Play again</button>
+        </div>
+    </div>
 </body>
 </html>
